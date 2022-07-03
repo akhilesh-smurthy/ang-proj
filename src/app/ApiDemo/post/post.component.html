@@ -1,0 +1,47 @@
+<p>post works!</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-sm btn-primary" (click)="onAddRecord()">Add new post</button>
+        </div>
+    </div>
+    <div class="row mt-4" *ngIf="!showAddForm && !showEditForm">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Id</td>                       
+                        <td>Title</td>                        
+                        <td>Action(s)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of posts">
+                        <td>{{post.id}}</td>                        
+                        <td>{{post.title}}</td>                        
+                        <td>
+                            <a class="btn btn-primary btn-sm" [routerLink]="['/post/detail', post.id]">Details</a>&nbsp;&nbsp;
+                            <a class="btn btn-info btn-sm" [routerLink]="['/post/edit', post.id]" *ngIf="isAdmin">Edit</a>&nbsp;&nbsp;
+                            <button class="btn btn-danger btn-sm" (click)="deleteRecord(post.id)" *ngIf="isAdmin">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="row" *ngIf="showAddForm || showEditForm">
+        <div class="col-md-6">
+            <form [formGroup]="userForm" (submit)="saveData()">
+                <label for="">Title</label>
+                <input type="text" name="title" formControlName="title" class="form-control">
+                <label for="">Body</label>
+                <textarea name="body" cols="30" rows="10" formControlName="body" class="form-control"></textarea>
+                <button *ngIf="showAddForm || !showEditForm" type="submit" class="btn btn-sm btn-primary">Create</button>
+                <button *ngIf="showEditForm" (click)="updateRecord()" type="button" class="btn btn-sm btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

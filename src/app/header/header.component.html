@@ -1,0 +1,122 @@
+<p>header works!</p>
+<table class="table table-bordered">
+    <tr>
+        <th>FIRST NAME
+        </th>
+        <td>{{firstname}}</td>
+        </tr>
+            <tr>
+        <th>LAST NAME
+        </th>
+                <td>{{lastname}}</td>
+                </tr>
+                    <tr>
+        <th>AGE
+        </th>
+                <td>{{age}}</td>
+                </tr>
+                <tr>
+        <th>Admin
+        </th>
+            <td>{{isAdmin? 'YES': 'NO'}}</td>
+    </tr>
+</table> 
+<br>
+<button class='btn btn-success' disabled="{{isDisabled}}">Create</button>
+
+<button class='btn btn-success' [disabled]="isDisabled">Login</button>
+<br>
+<select (change)="txtcolor=$any($event.target).changevalue">
+    <option value="red">red</option>
+    <option value="blue">blue</option>
+    <option value="green">green</option>
+    <option value="orange">orange</option>
+</select>
+<h3 [ngStyle]="{'color':txtcolor}">This is the color</h3>
+
+<br>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>{{name}}</td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td>{{age}}</td>
+    </tr>
+    <tr *ngIf="status">
+        <th>Country</th>
+        <td>{{country}}</td>
+    </tr>
+    <tr *ngIf="status">
+        <th>Salary</th>
+        <td>{{salary}}</td>
+    </tr>
+</table>
+<button class="btn btn-sm btn-primary" (click)="toggleButton()">
+    {{status?'Hide':'Show'}} details
+</button>
+<br>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Age</th>
+        </tr>            
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of pets">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.type}}</td>
+            <td>{{p.age}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Like</th>
+            <th>Dislike</th>
+            <th>Action</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of courses; let i =index">
+            <td>{{c.name}}</td>
+            <td>{{c.like}}</td>
+            <td>{{c.dislike}}</td>
+            <!-- <td>
+                <button (click)="Like(c)">Like</button>
+                <button (click)="Dislike(c)">Dislike</button>
+            </td> -->
+            <td>
+                <button (click)="c.like = c.like +1">Like</button>
+                <button (click)="c.dislike = c.dislike+1">Dislike</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<!-- Group Element  -->
+<!--<div *ngIf="">
+    <h3>REACT</h3>
+    <h5>ANGULAR</h5>
+    <div>Description</div>
+</div>-->
+
+ <ng-container>
+        <h3>REACT</h3>
+        <h5>ANGULAR</h5>
+        <div>Description</div>     
+</ng-container> 
+
+<!-- Template Reference Variable -->
+<input type="text" #username>
+<button (click)="handleClick(username)">
+    Submit
+</button>

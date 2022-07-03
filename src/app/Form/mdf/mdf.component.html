@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <form [formGroup]="userForm" (submit)="onSubmit()">
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                 <h3>MODEL DRIVEN FORM</h3>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                  <label for="">Username</label>
+                  <input type="text" name="username" formControlName="username" class="form-control" autocomplete="off" >               
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                  <label for="">Password</label>
+                  <input type="password" name="password" formControlName="password" class="form-control"  >
+            </div>
+        </div>
+    
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-sm btn-success" [disabled]="!userForm.valid" >Submit</button>
+            </div>
+        </div>   
+        
+        <div class="row mt-4" formArrayName="skills">
+            <div class="col-md-12">
+                    <label for="">Skills</label>
+                    <ng-container *ngFor="let skill of skills.controls; let i = index">
+                        <div class="row mt-2 ">
+                            <div class="col-md-6">                           
+                                  <input type="text" name="skills" placeholder="another skill"
+                                         formControlName="{{i}}" class="form-control"  >
+                            </div>
+                            <div class="col-md-3">
+                                 <button *ngIf="i>=1" (click)="onRemoveSkill(i)" class="btn btn-danger btn-sm">Remove</button>
+                            </div>
+                        </div>
+
+                    </ng-container>
+                    <button (click)="onAddSkill()" class="btn btn-sm btn-primary mt-3">Add Skill</button>
+            </div>
+        </div>
+    </form>
+</div>

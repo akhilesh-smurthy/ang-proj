@@ -1,0 +1,40 @@
+<app-employee-child
+[AllCount]="getAllEmp()"
+[MaleCount]="getMaleEmp()"
+[FemaleCount]="getFemaleEmp()"
+(genderEvent)="filterEmp($event)">
+</app-employee-child>
+<p>employee-record works!</p>
+<input
+     type="text"
+     [(ngModel)]="searchValue"
+     placeholder="type something"
+     class="form-control mt-4 mb-4"
+     >
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Rank</td>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Gender</td>
+            <td>Country</td>
+            <td>Date</td>
+            <td>Salary</td>
+        </tr>
+    </thead>
+    <tbody>        
+            <!-- <tr *ngFor="let emp of employees | empFilter:genderFilter; let i=index"> -->
+            <tr *ngFor="let emp of employees | empFilter:searchValue; let i=index">
+            <td>{{i+1 | empRankOrdinal}}</td>
+            <td>{{emp.name | empTitle: emp.gender}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.gender | lowercase}}</td>
+            <td>{{emp.country | uppercase}}</td>
+            <td>{{dob | date}}</td>
+            <td>{{salary | currency:"INR"}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<button (click)="addUser()" class="btn btn-sm btn-primary">Add User</button>

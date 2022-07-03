@@ -1,0 +1,19 @@
+<h3>Service student works!</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Gender</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of student">
+            <td>{{std.Id}}</td>
+            <td>{{std.FirstName}}</td>
+            <td>{{std.LastName}}</td>
+            <td>{{std.Gender}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+<p>tdf works!</p>
+<form #userForm="ngForm" (submit)="onSubmit(userForm)">
+    <label>Username</label>
+    <input type="text" name="username" class="form-control" minlength="4" required #usernameRef="ngModel" ngModel>
+    <div *ngIf="usernameRef.errors">
+        <span class="text-danger" *ngIf="usernameRef.errors.required && usernameRef.dirty">User name is required</span>
+        <span class="text-danger" *ngIf="usernameRef.errors.minlength"> minimum 4 character</span>
+    </div>
+    <br>
+    <label>Password</label>
+    <input type="textpassowrd" name="password" class="form-control" required ngModel>
+    <br>
+    <button type="submit" class="btn btn-sm btn-success" [disabled]="!userForm.valid">Submit</button>
+</form>

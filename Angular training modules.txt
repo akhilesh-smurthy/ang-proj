@@ -1,0 +1,13 @@
+Modules
+Module 1: Writing Your First Angular Web Application 
+Module 2: TypeScript
+Module 3: Angular Components
+Module 4: Angular Directive and Pipes
+Module 5: Angular Forms	
+Module 6: Angular Routing with Guards
+Module 7: HTTP, Observables
+Module 8: Data Architecture in Angular
+Module 9: Introduction to Redux with TypeScript
+Module 10: Intermediate Redux in Angular
+Module 11: Advance Component	
+Module 12: Testing	

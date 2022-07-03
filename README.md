@@ -1,4 +1,17 @@
-# TestProj
+## Modules covered
+Module 1: Writing Your First Angular Web Application 
+Module 2: TypeScript
+Module 3: Angular Components
+Module 4: Angular Directive and Pipes
+Module 5: Angular Forms	
+Module 6: Angular Routing with Guards
+Module 7: HTTP, Observables
+Module 8: Data Architecture in Angular
+Module 9: Introduction to Redux with TypeScript
+Module 10: Intermediate Redux in Angular
+Module 11: Advance Component
+
+# AngProj
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
@@ -25,3 +38,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+

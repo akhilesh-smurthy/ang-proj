@@ -1,0 +1,16 @@
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h1 class="text-center text-success">Update Record ID: {{id}}</h1>
+    </div>
+</div>
+<div class="row-mt-4">
+    <div class="col-md-12">
+        <form [formGroup]="postFormGroup" (submit)="updateRecord()">
+            <label>Title</label>
+            <input type="text" class="form-control" formControlName="title" name="title" >
+            <label>Body</label>
+            <textarea cols="30" rows="10" class="form-control" formControlName="body" name="body"></textarea> 
+            <button class="btn btn-sm btn-primary" type="submit">Update</button>           
+        </form>
+    </div>
+</div>

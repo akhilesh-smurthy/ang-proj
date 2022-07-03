@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            LOGIN PANEL
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="loginGroup" (submit)="loginProcess()">
+                <label>Username</label>
+                <input type="text" class="form-control mt-4" name="username" formControlName="username">
+                <label>Password</label>
+                <input type="password" class="form-control mt-4" name="password" formControlName="password">
+                <button class="btn btn-sm btn-success" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
